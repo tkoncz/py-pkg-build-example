@@ -21,7 +21,9 @@ jobs:
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
       - name: Build with uv
-        run: uv pip install build && python -m build
+        run: |
+          uv pip install --system build
+          python -m build
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
